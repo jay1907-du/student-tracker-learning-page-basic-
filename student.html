@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Learning Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Student Learning Tracker</h1>
+    <p>Learn Today &amp; Lead Tomorrow</p>
+
+    <!-- Weekly Attendance -->
+    <div class="section-row">
+        <h2>Weekly Attendance</h2>
+        <button type="button" onclick="showAttendance()">
+            Check Your Attendance
+        </button>
+    </div>
+
+    <div id="attendanceBox" style="display: none;">
+        <h3>Select Your Present Days</h3>
+
+        <label><input type="checkbox" class="day"> Monday</label><br>
+        <label><input type="checkbox" class="day"> Tuesday</label><br>
+        <label><input type="checkbox" class="day"> Wednesday</label><br>
+        <label><input type="checkbox" class="day"> Thursday</label><br>
+        <label><input type="checkbox" class="day"> Friday</label><br><br>
+
+        <button type="button" onclick="checkAttendance()">
+            Calculate Attendance
+        </button>
+
+        <p id="attendanceResult">Attendance: 0%</p>
+    </div>
+
+    <hr>
+
+    <!-- Classwork -->
+    <div class="section-row">
+        <h2>Classwork</h2>
+        <button type="button" onclick="showClasswork()">
+            Add Classwork
+        </button>
+    </div>
+
+    <div id="classworkBox" style="display: none;">
+        <h3>Add Class Details</h3>
+
+        <label for="className">Class Name:</label>
+        <input type="text" id="className" placeholder="e.g. Class 4">
+
+        <br><br>
+
+        <label for="subjectName">Subject Name:</label>
+        <input type="text" id="subjectName" placeholder="e.g. Mathematics">
+
+        <br><br>
+
+        <label for="topicName">Topic Name:</label>
+        <input type="text" id="topicName" placeholder="Enter chapter">
+
+        <br><br>
+
+        <button type="button" onclick="addClasswork()">
+            Save Classwork
+        </button>
+
+        <h3>Classwork Details</h3>
+        <div id="classworkResult"></div>
+    </div>
+
+    <hr>
+
+    <!-- Class-wise Syllabus -->
+    <div class="section-row">
+        <h2>Class-wise Syllabus</h2>
+        <button type="button" onclick="showSyllabus()">
+            Check Your Syllabus
+        </button>
+    </div>
+
+    <div id="syllabusBox" style="display: none;">
+
+        <label for="syllabusClass">Select Class:</label>
+
+        <select id="syllabusClass" onchange="loadSyllabusSubjects()">
+            <option value="">Select Class</option>
+            <option value="1">Class 1</option>
+            <option value="2">Class 2</option>
+            <option value="3">Class 3</option>
+            <option value="4">Class 4</option>
+            <option value="5">Class 5</option>
+            <option value="6">Class 6</option>
+            <option value="7">Class 7</option>
+            <option value="8">Class 8</option>
+            <option value="9">Class 9</option>
+            <option value="10">Class 10</option>
+            <option value="11">Class 11</option>
+            <option value="12">Class 12</option>
+        </select>
+
+        <br><br>
+
+        <label for="syllabusSubject">Select Subject:</label>
+
+        <select id="syllabusSubject" onchange="showSyllabusDetails()" disabled>
+            <option value="">First select class</option>
+        </select>
+
+        <div id="syllabusDetails" style="display: none;">
+            <h3>Syllabus Information</h3>
+            <p id="syllabusMessage"></p>
+            <p id="syllabusSource"></p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Student Homework -->
+    <div class="section-row">
+        <h2>Student Homework</h2>
+        <button type="button" onclick="showHomework()">
+            Check Your Homework
+        </button>
+    </div>
+
+    <div id="homeworkBox" style="display: none;">
+
+        <h3>Add New Homework</h3>
+
+        <label for="homeworkSubject">Subject:</label>
+        <input type="text" id="homeworkSubject" placeholder="e.g. Mathematics">
+
+        <br><br>
+
+        <label for="homeworkText">Homework Details:</label>
+        <input type="text" id="homeworkText" placeholder="e.g. Complete exercise 1">
+
+        <br><br>
+
+        <label for="homeworkDueDate">Due Date:</label>
+        <input type="date" id="homeworkDueDate">
+
+        <br><br>
+
+        <button type="button" onclick="addHomework()">
+            Save Homework
+        </button>
+
+        <h3>My Homework List</h3>
+
+        <p id="homeworkSummary">No homework added yet.</p>
+
+        <div id="homeworkList"></div>
+
+    </div>
+
+    <!-- Connect JavaScript only once -->
+    <script src="student.js"></script>
+
+</body>
+
+</html>
